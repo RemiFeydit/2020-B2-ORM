@@ -7,7 +7,24 @@ exports = module.exports = {
   datasets,
   algo: function (input) {
     // YOUR CODE BETWEEN HERE
-
+    let ranking = input[0]
+    for (let index = 1; index < input.length; index++) {
+      const element = input[index];
+      ranking += parseInt(element)
+      ranking -= parseInt(element.slice(element.indexOf(' ')))
+    }
+    if(ranking <= 100)
+    {
+      return 1000
+    }
+    else if(ranking<=10000)
+    {
+      return 100
+    }
+    else
+    {
+      return 'KO'
+    }
     // AND HERE
   },
   verify: function (dataset, output) {
